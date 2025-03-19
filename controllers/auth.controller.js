@@ -8,7 +8,7 @@ exports.login = (req, res) => {
 
   const sql = "SELECT * FROM usuarios WHERE email = ?";
   db.query(sql, [email], async (err, results) => {
-    if (err || results.length === 0) return res.status(401).json({ error: "Credenciales inválidas" });
+    if (err || results.length === 0) return res.status(401).json({ error: "Email no registrado" });
 
     const user = results[0];
     const isMatch = await bcrypt.compare(password, user.password);
