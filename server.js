@@ -15,9 +15,9 @@ app.get("/", (_req,res) => {
   res.send("BIENVENIDO AL API");
 });
 
-app.use("/api", authRoutes);
-app.use("/api", usuarioRoutes);
-app.use("/api", personaRoutes);
+app.use("/api/v1", authRoutes);
+app.use("/api/v1", usuarioRoutes);
+app.use("/api/v1", personaRoutes);
 
 
 const PORT = process.env.PORT || 3000;
